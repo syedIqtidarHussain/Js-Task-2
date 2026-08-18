@@ -22,7 +22,7 @@ h2 {
   color: #222;
 }
 
-/* --- TASK 8: Tabbed Navigation Menu --- */
+/* --- Tabbed Navigation Menu --- */
 .tabs {
   display: flex;
   border-bottom: 2px solid #ccc;
@@ -56,7 +56,7 @@ h2 {
   display: block;
 }
 
-/* --- TASK 9: To-Do-List --- */
+/* ---To-Do-List --- */
 .todo-card {
   width: 100%;
   border-radius: 4px;
@@ -133,7 +133,7 @@ h2 {
   color: white;
 }
 
-/* --- TASK 10: Image Slider --- */
+/* ---Image Slider --- */
 .slider-container {
   position: relative;
   max-width: 100%;
@@ -174,7 +174,7 @@ h2 {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* --- TASK 11: Toggle Switch --- */
+/* ---Toggle Switch --- */
 .toggle-wrapper {
   display: flex;
   flex-direction: column;
