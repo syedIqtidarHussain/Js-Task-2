@@ -1,4 +1,4 @@
-// TASK 8: Tabbed Navigation Menu
+// Tabbed Navigation Menu
 function openTab(evt, tabName) {
   const tabContents = document.getElementsByClassName("tab-content");
   for (let i = 0; i < tabContents.length; i++) {
@@ -14,7 +14,7 @@ function openTab(evt, tabName) {
   evt.currentTarget.classList.add("active");
 }
 
-// TASK 9: To-Do-List
+// To-Do-List
 const todoInput = document.getElementById("todoInput");
 const addBtn = document.getElementById("addBtn");
 const todoList = document.getElementById("todoList");
@@ -39,7 +39,7 @@ function attachDeleteEvent(button) {
 
 document.querySelectorAll(".delete-btn").forEach(attachDeleteEvent);
 
-// TASK 10: Image Slider (Controls 5 HTML Images)
+// Image Slider (Controls 5 HTML Images)
 
 let currentSlideIndex = 0;
 
@@ -59,7 +59,7 @@ function changeSlide(direction) {
   slides[currentSlideIndex].classList.add("active");
 }
 
-// TASK 11: Toggle Switch
+// Toggle Switch
 function toggleState(checkbox) {
   const toggleText = document.getElementById("toggleText");
   const emojiIcon = checkbox.parentElement.querySelector(".emoji-icon");
