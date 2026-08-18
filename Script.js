@@ -1,6 +1,4 @@
-// ==========================================
 // TASK 8: Tabbed Navigation Menu
-// ==========================================
 function openTab(evt, tabName) {
   const tabContents = document.getElementsByClassName("tab-content");
   for (let i = 0; i < tabContents.length; i++) {
@@ -16,9 +14,7 @@ function openTab(evt, tabName) {
   evt.currentTarget.classList.add("active");
 }
 
-// ==========================================
 // TASK 9: To-Do-List
-// ==========================================
 const todoInput = document.getElementById("todoInput");
 const addBtn = document.getElementById("addBtn");
 const todoList = document.getElementById("todoList");
@@ -43,18 +39,15 @@ function attachDeleteEvent(button) {
 
 document.querySelectorAll(".delete-btn").forEach(attachDeleteEvent);
 
-// ==========================================
 // TASK 10: Image Slider (Controls 5 HTML Images)
-// ==========================================
+
 let currentSlideIndex = 0;
 
 function changeSlide(direction) {
   const slides = document.querySelectorAll(".slide-img");
   
-  // Current active class remove karein
   slides[currentSlideIndex].classList.remove("active");
 
-  // Index increment/decrement karein
   currentSlideIndex += direction;
 
   if (currentSlideIndex >= slides.length) {
@@ -63,13 +56,10 @@ function changeSlide(direction) {
     currentSlideIndex = slides.length - 1;
   }
 
-  // Agli image par active class add karein
   slides[currentSlideIndex].classList.add("active");
 }
 
-// ==========================================
 // TASK 11: Toggle Switch
-// ==========================================
 function toggleState(checkbox) {
   const toggleText = document.getElementById("toggleText");
   const emojiIcon = checkbox.parentElement.querySelector(".emoji-icon");
