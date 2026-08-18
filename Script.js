@@ -1,74 +1,129 @@
-// Tabbed Navigation Menu
-function openTab(evt, tabName) {
-  const tabContents = document.getElementsByClassName("tab-content");
-  for (let i = 0; i < tabContents.length; i++) {
-    tabContents[i].classList.remove("active");
-  }
+// Ensure code runs only after HTML DOM is fully loaded on GitHub Pages
+document.addEventListener("DOMContentLoaded", () => {
 
-  const tabBtns = document.getElementsByClassName("tab-btn");
-  for (let i = 0; i < tabBtns.length; i++) {
-    tabBtns[i].classList.remove("active");
-  }
+  // ==========================================
+  // TASK 8: Tabbed Navigation Menu
+  // ==========================================
+  const tabBtns = document.querySelectorAll(".tab-btn");
+  const tabContents = document.querySelectorAll(".tab-content");
 
-  document.getElementById(tabName).classList.add("active");
-  evt.currentTarget.classList.add("active");
-}
+  tabBtns.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      // Remove active class from all buttons and contents
+      tabBtns.forEach((b) => b.classList.remove("active"));
+      tabContents.forEach((c) => c.classList.remove("active"));
 
-// To-Do-List
-const todoInput = document.getElementById("todoInput");
-const addBtn = document.getElementById("addBtn");
-const todoList = document.getElementById("todoList");
+      // Add active class to clicked button
+      btn.classList.add("active");
 
-addBtn.addEventListener("click", () => {
-  const text = todoInput.value.trim();
-  if (text !== "") {
-    const li = document.createElement("li");
-    li.className = "todo-item";
-    li.innerHTML = `<span>${text}</span><span class="delete-btn">&times;</span>`;
-    todoList.appendChild(li);
-    todoInput.value = "";
-    attachDeleteEvent(li.querySelector(".delete-btn"));
-  }
-});
+      // Get target tab ID from onclick/attribute or text logic
+      const btnText = btn.innerText.trim();
+      let targetId = "Tab1";
+      if (btnText === "Services") targetId = "Tab2";
+      if (btnText === "About") targetId = "Tab3";
 
-function attachDeleteEvent(button) {
-  button.addEventListener("click", function () {
-    this.parentElement.remove();
+      const targetTab = document.getElementById(targetId);
+      if (targetTab) {
+        targetTab.classList.add("active");
+      }
+    });
   });
-}
 
-document.querySelectorAll(".delete-btn").forEach(attachDeleteEvent);
+  // ==========================================
+  // TASK 9: To-Do-List (Event Delegation for Live Server)
+  // ==========================================
+  const todoInput = document.getElementById("todoInput");
+  const addBtn = document.getElementById("addBtn");
+  const todoList = document.getElementById("todoList");
 
-// Image Slider (Controls 5 HTML Images)
+  if (addBtn && todoInput && todoList) {
+    // Add new activity function
+    const addTodoItem = () => {
+      const text = todoInput.value.trim();
+      if (text !== "") {
+        const li = document.createElement("li");
+        li.className = "todo-item";
+        li.innerHTML = `<span>${text}</span><span class="delete-btn">&times;</span>`;
+        todoList.appendChild(li);
+        todoInput.value = "";
+      }
+    };
 
-let currentSlideIndex = 0;
+    // Click on 'Add' button
+    addBtn.addEventListener("click", addTodoItem);
 
-function changeSlide(direction) {
+    // Press 'Enter' key inside input
+    todoInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        addTodoItem();
+      }
+    });
+
+    // Delete Activity (Event Delegation - GitHub Pages safe)
+    todoList.addEventListener("click", (e) => {
+      if (e.target.classList.contains("delete-btn")) {
+        e.target.parentElement.remove();
+      }
+    });
+  }
+
+  // ==========================================
+  // TASK 10: Image Slider (Controls 5 HTML Images)
+  // ==========================================
+  let currentSlideIndex = 0;
   const slides = document.querySelectorAll(".slide-img");
-  
-  slides[currentSlideIndex].classList.remove("active");
+  const prevBtn = document.querySelector(".prev-btn");
+  const nextBtn = document.querySelector(".next-btn");
 
-  currentSlideIndex += direction;
+  function showSlide(index) {
+    if (!slides || slides.length === 0) return;
 
-  if (currentSlideIndex >= slides.length) {
-    currentSlideIndex = 0;
-  } else if (currentSlideIndex < 0) {
-    currentSlideIndex = slides.length - 1;
+    // Hide all slides
+    slides.forEach((slide) => slide.classList.remove("active"));
+
+    // Handle index overflow / loop
+    if (index >= slides.length) {
+      currentSlideIndex = 0;
+    } else if (index < 0) {
+      currentSlideIndex = slides.length - 1;
+    } else {
+      currentSlideIndex = index;
+    }
+
+    // Show current slide
+    slides[currentSlideIndex].classList.add("active");
   }
 
-  slides[currentSlideIndex].classList.add("active");
-}
+  if (prevBtn) {
+    prevBtn.addEventListener("click", () => {
+      showSlide(currentSlideIndex - 1);
+    });
+  }
 
-// Toggle Switch
-function toggleState(checkbox) {
+  if (nextBtn) {
+    nextBtn.addEventListener("click", () => {
+      showSlide(currentSlideIndex + 1);
+    });
+  }
+
+  // ==========================================
+  // TASK 11: Toggle Switch
+  // ==========================================
+  const emojiToggle = document.getElementById("emojiToggle");
   const toggleText = document.getElementById("toggleText");
-  const emojiIcon = checkbox.parentElement.querySelector(".emoji-icon");
 
-  if (checkbox.checked) {
-    toggleText.innerText = "ON";
-    emojiIcon.innerText = "🙁";
-  } else {
-    toggleText.innerText = "OFF";
-    emojiIcon.innerText = "😊";
+  if (emojiToggle) {
+    emojiToggle.addEventListener("change", function () {
+      const emojiIcon = this.parentElement.querySelector(".emoji-icon");
+
+      if (this.checked) {
+        if (toggleText) toggleText.innerText = "ON";
+        if (emojiIcon) emojiIcon.innerText = "🙁";
+      } else {
+        if (toggleText) toggleText.innerText = "OFF";
+        if (emojiIcon) emojiIcon.innerText = "😊";
+      }
+    });
   }
-}
+
+});
