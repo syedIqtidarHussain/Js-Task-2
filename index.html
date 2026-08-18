@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Internship Tasks - All-in-One</title>
+  <title>Internship Tasks 8-11</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -22,17 +22,15 @@
     </div>
     <div id="Tab2" class="tab-content">
       <h3>Services Section</h3>
-      <p>Here are the details of the services offered.</p>
+      <p>Welcome to the services tab content!</p>
     </div>
     <div id="Tab3" class="tab-content">
       <h3>About Section</h3>
-      <p>Learn more about our team and vision here.</p>
+      <p>Welcome to the about tab content!</p>
     </div>
   </section>
 
-  <hr />
-
-  <!-- TASK 9: To-Do-List (As shown in screenshots) -->
+  <!-- TASK 9: To-Do-List -->
   <section class="container">
     <h2>Task 9: To-Do-List</h2>
     <div class="todo-card">
@@ -44,61 +42,33 @@
         </div>
       </div>
       <ul id="todoList" class="todo-list">
-        <!-- Default items matching design -->
-        <li class="todo-item">
-          <span>activity 1</span>
-          <span class="delete-btn">&times;</span>
-        </li>
-        <li class="todo-item">
-          <span>activity 2</span>
-          <span class="delete-btn">&times;</span>
-        </li>
-        <li class="todo-item">
-          <span>activity 3</span>
-          <span class="delete-btn">&times;</span>
-        </li>
-        <li class="todo-item">
-          <span>activity 4</span>
-          <span class="delete-btn">&times;</span>
-        </li>
+        <li class="todo-item"><span>activity 1</span><span class="delete-btn">&times;</span></li>
+        <li class="todo-item"><span>activity 2</span><span class="delete-btn">&times;</span></li>
+        <li class="todo-item"><span>activity 3</span><span class="delete-btn">&times;</span></li>
+        <li class="todo-item"><span>activity 4</span><span class="delete-btn">&times;</span></li>
       </ul>
     </div>
   </section>
 
-  <hr />
-<section class = "container">
-  <h2>Task 10 : images slider</h2>
-const images = [
-  "https://picsum.photos/id/10/600/300",
-  "https://picsum.photos/id/20/600/300",
-  "https://picsum.photos/id/30/600/300",
-  "https://picsum.photos/id/40/600/300",
-  "https://picsum.photos/id/50/600/300"
-];
+  <!-- TASK 10: Image Slider -->
+  <section class="container">
+    <h2>Task 10 : images slider</h2>
+    <div class="slider-container">
+      <div class="slider">
+        <img id="sliderImg" src="https://picsum.photos/id/10/600/300" alt="Slide Image" />
+      </div>
+      <button class="prev-btn" onclick="changeSlide(-1)">&#10094;</button>
+      <button class="next-btn" onclick="changeSlide(1)">&#10095;</button>
+    </div>
+  </section>
 
-let currentSlideIndex = 0;
-const sliderImg = document.getElementById("sliderImg");
-
-function changeSlide(direction) {
-  currentSlideIndex += direction;
-  
-  if (currentSlideIndex >= images.length) {
-    currentSlideIndex = 0;
-  } else if (currentSlideIndex < 0) {
-    currentSlideIndex = images.length - 1;
-  }
-
-  sliderImg.src = images[currentSlideIndex];
-}
-
-
-  <!-- TASK 11: Toggle Button / Switch -->
+  <!-- TASK 11: Toggle Switch -->
   <section class="container">
     <h2>Task 11: Toggle Switch</h2>
     <div class="toggle-wrapper">
       <label class="switch">
         <input type="checkbox" id="emojiToggle" onchange="toggleState(this)" />
-        <span class="slider-switch round">
+        <span class="slider-switch">
           <span class="emoji-icon">😊</span>
         </span>
       </label>
