@@ -1,0 +1,234 @@
+/* General Layout */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f7f6;
+  margin: 0;
+  padding: 20px;
+  color: #333;
+}
+
+.container {
+  max-width: 700px;
+  margin: 20px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: #ddd;
+  margin: 40px auto;
+  max-width: 700px;
+}
+
+/* --- Task 8: Tabbed Navigation Menu --- */
+.tabs {
+  display: flex;
+  border-bottom: 2px solid #ccc;
+}
+
+.tab-btn {
+  background-color: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 12px 20px;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.tab-btn:hover {
+  background-color: #ddd;
+}
+
+.tab-btn.active {
+  background-color: #51a7d0;
+  color: white;
+}
+
+.tab-content {
+  display: none;
+  padding: 15px 0;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* --- Task 9: To-Do List Styling (Matching Screenshots Exact Layout) --- */
+.todo-card {
+  width: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.todo-header {
+  background-color: #51a7d0;
+  padding: 20px;
+  text-align: center;
+}
+
+.todo-header h1 {
+  color: white;
+  margin: 0 0 15px 0;
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.todo-input-group {
+  display: flex;
+  background: #fff;
+}
+
+.todo-input-group input {
+  flex: 1;
+  padding: 10px 15px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+.todo-input-group button {
+  padding: 10px 30px;
+  border: none;
+  background-color: #e0e0e0;
+  color: #555;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.todo-input-group button:hover {
+  background-color: #d0d0d0;
+}
+
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px;
+  background-color: #cfd8dc;
+  border-bottom: 1px solid #b0bec5;
+  color: #333;
+}
+
+.todo-item:nth-child(even) {
+  background-color: #eceff1;
+}
+
+.delete-btn {
+  padding: 4px 12px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #555;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+/* Red hover state for close button as shown in task screenshot */
+.delete-btn:hover {
+  background-color: #ef5350;
+  color: white;
+}
+
+/* --- Task 10: Image Slider --- */
+.slider-container {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.slider img {
+  width: 100%;
+  border-radius: 6px;
+  display: block;
+}
+
+.prev-btn, .next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 4px;
+}
+
+.prev-btn { left: 10px; }
+.next-btn { right: 10px; }
+
+.prev-btn:hover, .next-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* --- Task 11: Toggle Switch (Emoji Style as shown in attachment) --- */
+.toggle-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 80px;
+  height: 40px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider-switch {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #a0a0a0;
+  transition: 0.4s;
+  border-radius: 40px;
+}
+
+.slider-switch .emoji-icon {
+  position: absolute;
+  height: 32px;
+  width: 32px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: 0.4s;
+}
+
+input:checked + .slider-switch {
+  background-color: #90caf9;
+}
+
+input:checked + .slider-switch .emoji-icon {
+  transform: translateX(40px);
+  background-color: #fff176;
+}
+
+.toggle-status {
+  font-weight: bold;
+  color: #555;
+  font-size: 14px;
+}
