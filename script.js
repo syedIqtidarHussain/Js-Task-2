@@ -1,8 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  // ==========================================
-  // Fade-in on Scroll (saray sections ke liye)
-  // ==========================================
+  // Fade-in on Scroll 
+  
   const fadeSections = document.querySelectorAll(".container");
   const fadeObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -14,9 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   fadeSections.forEach((section) => fadeObserver.observe(section));
 
-  // ==========================================
   // Tabbed Navigation Menu
-  // ==========================================
+  
   const tabBtns = document.querySelectorAll(".tab-btn");
   const tabContents = document.querySelectorAll(".tab-content");
 
@@ -34,9 +32,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // ==========================================
   // To-Do List
-  // ==========================================
+
   const todoInput = document.getElementById("todoInput");
   const addBtn = document.getElementById("addBtn");
   const todoList = document.getElementById("todoList");
@@ -68,9 +65,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ==========================================
   // Smooth Image Slider
-  // ==========================================
+
   const sliderContainer = document.querySelector(".slider-container");
   const sliderTrack = document.querySelector(".slider-track");
   const slides = document.querySelectorAll(".slide-img");
@@ -124,9 +120,8 @@ document.addEventListener("DOMContentLoaded", () => {
     startAutoSlide();
   }
 
-  // ==========================================
   // Toggle Switch
-  // ==========================================
+
   const emojiToggle = document.getElementById("emojiToggle");
   const toggleText = document.getElementById("toggleText");
 
