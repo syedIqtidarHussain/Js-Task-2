@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Internship Tasks - All-in-One</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- TASK 8: Tabbed Navigation Menu -->
+  <section class="container">
+    <h2>Task 8: Tabbed Navigation Menu</h2>
+    <div class="tabs">
+      <button class="tab-btn active" onclick="openTab(event, 'Tab1')">Home</button>
+      <button class="tab-btn" onclick="openTab(event, 'Tab2')">Services</button>
+      <button class="tab-btn" onclick="openTab(event, 'Tab3')">About</button>
+    </div>
+    <div id="Tab1" class="tab-content active">
+      <h3>Home Section</h3>
+      <p>Welcome to the home tab content!</p>
+    </div>
+    <div id="Tab2" class="tab-content">
+      <h3>Services Section</h3>
+      <p>Here are the details of the services offered.</p>
+    </div>
+    <div id="Tab3" class="tab-content">
+      <h3>About Section</h3>
+      <p>Learn more about our team and vision here.</p>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- TASK 9: To-Do-List (As shown in screenshots) -->
+  <section class="container">
+    <h2>Task 9: To-Do-List</h2>
+    <div class="todo-card">
+      <div class="todo-header">
+        <h1>To-do-List</h1>
+        <div class="todo-input-group">
+          <input type="text" id="todoInput" placeholder="Add your activity here..." />
+          <button id="addBtn">Add</button>
+        </div>
+      </div>
+      <ul id="todoList" class="todo-list">
+        <!-- Default items matching design -->
+        <li class="todo-item">
+          <span>activity 1</span>
+          <span class="delete-btn">&times;</span>
+        </li>
+        <li class="todo-item">
+          <span>activity 2</span>
+          <span class="delete-btn">&times;</span>
+        </li>
+        <li class="todo-item">
+          <span>activity 3</span>
+          <span class="delete-btn">&times;</span>
+        </li>
+        <li class="todo-item">
+          <span>activity 4</span>
+          <span class="delete-btn">&times;</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- TASK 10: Image Slider -->
+  <section class="container">
+    <h2>Task 10: Image Slider in JS</h2>
+    <div class="slider-container">
+      <div class="slider">
+        <img id="sliderImg" src="https://picsum.photos/id/10/600/300" alt="Slide Image" />
+      </div>
+      <button class="prev-btn" onclick="changeSlide(-1)">&#10094;</button>
+      <button class="next-btn" onclick="changeSlide(1)">&#10095;</button>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- TASK 11: Toggle Button / Switch -->
+  <section class="container">
+    <h2>Task 11: Toggle Switch</h2>
+    <div class="toggle-wrapper">
+      <label class="switch">
+        <input type="checkbox" id="emojiToggle" onchange="toggleState(this)" />
+        <span class="slider-switch round">
+          <span class="emoji-icon">😊</span>
+        </span>
+      </label>
+      <span id="toggleText" class="toggle-status">OFF</span>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
