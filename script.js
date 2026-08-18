@@ -1,7 +1,21 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   // ==========================================
-  // TASK 8: Tabbed Navigation Menu
+  // Fade-in on Scroll (saray sections ke liye)
+  // ==========================================
+  const fadeSections = document.querySelectorAll(".container");
+  const fadeObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  }, { threshold: 0.15 });
+
+  fadeSections.forEach((section) => fadeObserver.observe(section));
+
+  // ==========================================
+  // Tabbed Navigation Menu
   // ==========================================
   const tabBtns = document.querySelectorAll(".tab-btn");
   const tabContents = document.querySelectorAll(".tab-content");
@@ -21,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ==========================================
-  // TASK 9: To-Do-List
+  // To-Do List
   // ==========================================
   const todoInput = document.getElementById("todoInput");
   const addBtn = document.getElementById("addBtn");
@@ -55,43 +69,63 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ==========================================
-  // TASK 10: Image Slider
+  // Smooth Image Slider
   // ==========================================
-  let currentSlideIndex = 0;
+  const sliderContainer = document.querySelector(".slider-container");
+  const sliderTrack = document.querySelector(".slider-track");
   const slides = document.querySelectorAll(".slide-img");
+  const dots = document.querySelectorAll(".dot");
   const prevBtn = document.querySelector(".prev-btn");
   const nextBtn = document.querySelector(".next-btn");
+  let currentSlideIndex = 0;
+  let autoSlideInterval;
 
-  function showSlide(index) {
-    if (!slides || slides.length === 0) return;
-
-    slides.forEach((slide) => slide.classList.remove("active"));
-
-    if (index >= slides.length) {
-      currentSlideIndex = 0;
-    } else if (index < 0) {
-      currentSlideIndex = slides.length - 1;
-    } else {
-      currentSlideIndex = index;
-    }
-
-    slides[currentSlideIndex].classList.add("active");
+  function updateSlide() {
+    sliderTrack.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
+    dots.forEach((d) => d.classList.remove("active"));
+    if (dots[currentSlideIndex]) dots[currentSlideIndex].classList.add("active");
   }
 
-  if (prevBtn) {
-    prevBtn.addEventListener("click", () => {
-      showSlide(currentSlideIndex - 1);
-    });
+  function goToSlide(index) {
+    currentSlideIndex = (index + slides.length) % slides.length;
+    updateSlide();
   }
 
-  if (nextBtn) {
+  function startAutoSlide() {
+    autoSlideInterval = setInterval(() => goToSlide(currentSlideIndex + 1), 3500);
+  }
+
+  function resetAutoSlide() {
+    clearInterval(autoSlideInterval);
+    startAutoSlide();
+  }
+
+  if (sliderTrack && slides.length > 0) {
     nextBtn.addEventListener("click", () => {
-      showSlide(currentSlideIndex + 1);
+      goToSlide(currentSlideIndex + 1);
+      resetAutoSlide();
     });
+
+    prevBtn.addEventListener("click", () => {
+      goToSlide(currentSlideIndex - 1);
+      resetAutoSlide();
+    });
+
+    dots.forEach((dot) => {
+      dot.addEventListener("click", () => {
+        goToSlide(Number(dot.dataset.index));
+        resetAutoSlide();
+      });
+    });
+
+    sliderContainer.addEventListener("mouseenter", () => clearInterval(autoSlideInterval));
+    sliderContainer.addEventListener("mouseleave", startAutoSlide);
+
+    startAutoSlide();
   }
 
   // ==========================================
-  // TASK 11: Toggle Switch
+  // Toggle Switch
   // ==========================================
   const emojiToggle = document.getElementById("emojiToggle");
   const toggleText = document.getElementById("toggleText");
