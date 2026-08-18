@@ -1,4 +1,3 @@
-// Ensure code runs only after HTML DOM is fully loaded on GitHub Pages
 document.addEventListener("DOMContentLoaded", () => {
 
   // ==========================================
@@ -8,20 +7,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const tabContents = document.querySelectorAll(".tab-content");
 
   tabBtns.forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      // Remove active class from all buttons and contents
+    btn.addEventListener("click", () => {
       tabBtns.forEach((b) => b.classList.remove("active"));
       tabContents.forEach((c) => c.classList.remove("active"));
 
-      // Add active class to clicked button
       btn.classList.add("active");
-
-      // Get target tab ID from onclick/attribute or text logic
-      const btnText = btn.innerText.trim();
-      let targetId = "Tab1";
-      if (btnText === "Services") targetId = "Tab2";
-      if (btnText === "About") targetId = "Tab3";
-
+      const targetId = btn.getAttribute("data-tab");
       const targetTab = document.getElementById(targetId);
       if (targetTab) {
         targetTab.classList.add("active");
@@ -30,14 +21,13 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ==========================================
-  // TASK 9: To-Do-List (Event Delegation for Live Server)
+  // TASK 9: To-Do-List
   // ==========================================
   const todoInput = document.getElementById("todoInput");
   const addBtn = document.getElementById("addBtn");
   const todoList = document.getElementById("todoList");
 
   if (addBtn && todoInput && todoList) {
-    // Add new activity function
     const addTodoItem = () => {
       const text = todoInput.value.trim();
       if (text !== "") {
@@ -49,17 +39,14 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     };
 
-    // Click on 'Add' button
     addBtn.addEventListener("click", addTodoItem);
 
-    // Press 'Enter' key inside input
     todoInput.addEventListener("keypress", (e) => {
       if (e.key === "Enter") {
         addTodoItem();
       }
     });
 
-    // Delete Activity (Event Delegation - GitHub Pages safe)
     todoList.addEventListener("click", (e) => {
       if (e.target.classList.contains("delete-btn")) {
         e.target.parentElement.remove();
@@ -68,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ==========================================
-  // TASK 10: Image Slider (Controls 5 HTML Images)
+  // TASK 10: Image Slider
   // ==========================================
   let currentSlideIndex = 0;
   const slides = document.querySelectorAll(".slide-img");
@@ -78,10 +65,8 @@ document.addEventListener("DOMContentLoaded", () => {
   function showSlide(index) {
     if (!slides || slides.length === 0) return;
 
-    // Hide all slides
     slides.forEach((slide) => slide.classList.remove("active"));
 
-    // Handle index overflow / loop
     if (index >= slides.length) {
       currentSlideIndex = 0;
     } else if (index < 0) {
@@ -90,7 +75,6 @@ document.addEventListener("DOMContentLoaded", () => {
       currentSlideIndex = index;
     }
 
-    // Show current slide
     slides[currentSlideIndex].classList.add("active");
   }
 
