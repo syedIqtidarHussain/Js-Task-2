@@ -8,13 +8,13 @@
 </head>
 <body>
 
-  <!--Tabbed Navigation Menu -->
+  <!-- TASK 8: Tabbed Navigation Menu -->
   <section class="container">
-    <h2>Tabbed Navigation Menu</h2>
+    <h2>Task 8: Tabbed Navigation Menu</h2>
     <div class="tabs">
-      <button class="tab-btn active" onclick="openTab(event, 'Tab1')">Home</button>
-      <button class="tab-btn" onclick="openTab(event, 'Tab2')">Services</button>
-      <button class="tab-btn" onclick="openTab(event, 'Tab3')">About</button>
+      <button class="tab-btn active" data-tab="Tab1">Home</button>
+      <button class="tab-btn" data-tab="Tab2">Services</button>
+      <button class="tab-btn" data-tab="Tab3">About</button>
     </div>
     <div id="Tab1" class="tab-content active">
       <h3>Home Section</h3>
@@ -30,9 +30,9 @@
     </div>
   </section>
 
-  <!--To-Do-List -->
+  <!-- TASK 9: To-Do-List -->
   <section class="container">
-    <h2>To-Do-List</h2>
+    <h2>Task 9: To-Do-List</h2>
     <div class="todo-card">
       <div class="todo-header">
         <h1>To-do-List</h1>
@@ -50,9 +50,9 @@
     </div>
   </section>
 
-  <!--Image Slider (5 Images Linked) -->
+  <!-- TASK 10: Image Slider (5 Images Direct Link) -->
   <section class="container">
-    <h2>Images slider</h2>
+    <h2>Task 10 : images slider</h2>
     <div class="slider-container">
       <div class="slider">
         <img class="slide-img active" src="https://picsum.photos/id/10/600/300" alt="Slide 1" />
@@ -61,17 +61,17 @@
         <img class="slide-img" src="https://picsum.photos/id/40/600/300" alt="Slide 4" />
         <img class="slide-img" src="https://picsum.photos/id/50/600/300" alt="Slide 5" />
       </div>
-      <button class="prev-btn" onclick="changeSlide(-1)">&#10094;</button>
-      <button class="next-btn" onclick="changeSlide(1)">&#10095;</button>
+      <button class="prev-btn">&#10094;</button>
+      <button class="next-btn">&#10095;</button>
     </div>
   </section>
 
-  <!--Toggle Switch -->
+  <!-- TASK 11: Toggle Switch -->
   <section class="container">
-    <h2>Toggle Switch</h2>
+    <h2>Task 11: Toggle Switch</h2>
     <div class="toggle-wrapper">
       <label class="switch">
-        <input type="checkbox" id="emojiToggle" onchange="toggleState(this)" />
+        <input type="checkbox" id="emojiToggle" />
         <span class="slider-switch">
           <span class="emoji-icon">😊</span>
         </span>
