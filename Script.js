@@ -44,29 +44,27 @@ function attachDeleteEvent(button) {
 document.querySelectorAll(".delete-btn").forEach(attachDeleteEvent);
 
 // ==========================================
-// TASK 10: Image Slider
+// TASK 10: Image Slider (Controls 5 HTML Images)
 // ==========================================
-const images = [
-  "https://picsum.photos/id/10/600/300",
-  "https://picsum.photos/id/20/600/300",
-  "https://picsum.photos/id/30/600/300",
-  "https://picsum.photos/id/40/600/300",
-  "https://picsum.photos/id/50/600/300"
-];
-
 let currentSlideIndex = 0;
 
 function changeSlide(direction) {
-  const sliderImg = document.getElementById("sliderImg");
+  const slides = document.querySelectorAll(".slide-img");
+  
+  // Current active class remove karein
+  slides[currentSlideIndex].classList.remove("active");
+
+  // Index increment/decrement karein
   currentSlideIndex += direction;
 
-  if (currentSlideIndex >= images.length) {
+  if (currentSlideIndex >= slides.length) {
     currentSlideIndex = 0;
   } else if (currentSlideIndex < 0) {
-    currentSlideIndex = images.length - 1;
+    currentSlideIndex = slides.length - 1;
   }
 
-  sliderImg.src = images[currentSlideIndex];
+  // Agli image par active class add karein
+  slides[currentSlideIndex].classList.add("active");
 }
 
 // ==========================================
