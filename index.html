@@ -66,20 +66,31 @@
   </section>
 
   <hr />
+<section class = "container">
+  <h2>Task 10 : images slider</h2>
+const images = [
+  "https://picsum.photos/id/10/600/300",
+  "https://picsum.photos/id/20/600/300",
+  "https://picsum.photos/id/30/600/300",
+  "https://picsum.photos/id/40/600/300",
+  "https://picsum.photos/id/50/600/300"
+];
 
-  <!-- TASK 10: Image Slider -->
-  <section class="container">
-    <h2>Task 10: Image Slider in JS</h2>
-    <div class="slider-container">
-      <div class="slider">
-        <img id="sliderImg" src="https://picsum.photos/id/10/600/300" alt="Slide Image" />
-      </div>
-      <button class="prev-btn" onclick="changeSlide(-1)">&#10094;</button>
-      <button class="next-btn" onclick="changeSlide(1)">&#10095;</button>
-    </div>
-  </section>
+let currentSlideIndex = 0;
+const sliderImg = document.getElementById("sliderImg");
 
-  <hr />
+function changeSlide(direction) {
+  currentSlideIndex += direction;
+  
+  if (currentSlideIndex >= images.length) {
+    currentSlideIndex = 0;
+  } else if (currentSlideIndex < 0) {
+    currentSlideIndex = images.length - 1;
+  }
+
+  sliderImg.src = images[currentSlideIndex];
+}
+
 
   <!-- TASK 11: Toggle Button / Switch -->
   <section class="container">
