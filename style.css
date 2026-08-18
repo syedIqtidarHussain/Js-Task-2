@@ -22,7 +22,7 @@ h2 {
   color: #222;
 }
 
-/* --- Tabbed Navigation Menu --- */
+/* --- TASK 8: Tabbed Navigation Menu --- */
 .tabs {
   display: flex;
   border-bottom: 2px solid #ccc;
@@ -56,7 +56,7 @@ h2 {
   display: block;
 }
 
-/* ---To-Do-List --- */
+/* --- TASK 9: To-Do-List --- */
 .todo-card {
   width: 100%;
   border-radius: 4px;
@@ -126,6 +126,7 @@ h2 {
   cursor: pointer;
   font-size: 16px;
   color: #555;
+  user-select: none;
 }
 
 .delete-btn:hover {
@@ -133,7 +134,7 @@ h2 {
   color: white;
 }
 
-/* ---Image Slider --- */
+/* --- TASK 10: Image Slider --- */
 .slider-container {
   position: relative;
   max-width: 100%;
@@ -146,11 +147,11 @@ h2 {
   width: 100%;
   height: 300px;
   object-fit: cover;
-  display: none; /* Sub images hide rahengi */
+  display: none;
 }
 
 .slider .slide-img.active {
-  display: block; /* Sirf active image dikhegi */
+  display: block;
 }
 
 .prev-btn, .next-btn {
@@ -174,7 +175,7 @@ h2 {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* ---Toggle Switch --- */
+/* --- TASK 11: Toggle Switch --- */
 .toggle-wrapper {
   display: flex;
   flex-direction: column;
