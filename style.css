@@ -1,7 +1,7 @@
-/* General Layout */
+/* Global Layout Styles */
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f7f6;
+  background-color: #f8f9fa;
   margin: 0;
   padding: 20px;
   color: #333;
@@ -10,38 +10,36 @@ body {
 .container {
   max-width: 700px;
   margin: 20px auto;
-  background: #fff;
+  background: #ffffff;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
 
-hr {
-  border: 0;
-  height: 1px;
-  background: #ddd;
-  margin: 40px auto;
-  max-width: 700px;
+h2 {
+  margin-top: 0;
+  font-size: 20px;
+  color: #222;
 }
 
-/* --- Task 8: Tabbed Navigation Menu --- */
+/* --- TASK 8: Tabbed Navigation Menu --- */
 .tabs {
   display: flex;
   border-bottom: 2px solid #ccc;
 }
 
 .tab-btn {
-  background-color: inherit;
+  background-color: transparent;
   border: none;
   outline: none;
   cursor: pointer;
-  padding: 12px 20px;
-  font-size: 16px;
-  transition: 0.3s;
+  padding: 10px 20px;
+  font-size: 15px;
+  transition: background-color 0.2s;
 }
 
 .tab-btn:hover {
-  background-color: #ddd;
+  background-color: #eee;
 }
 
 .tab-btn.active {
@@ -51,32 +49,31 @@ hr {
 
 .tab-content {
   display: none;
-  padding: 15px 0;
+  padding: 15px 0 0 0;
 }
 
 .tab-content.active {
   display: block;
 }
 
-/* --- Task 9: To-Do List Styling (Matching Screenshots Exact Layout) --- */
+/* --- TASK 9: To-Do-List --- */
 .todo-card {
   width: 100%;
   border-radius: 4px;
   overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  border: 1px solid #ccc;
 }
 
 .todo-header {
   background-color: #51a7d0;
-  padding: 20px;
+  padding: 15px;
   text-align: center;
 }
 
 .todo-header h1 {
   color: white;
-  margin: 0 0 15px 0;
-  font-size: 26px;
-  font-weight: 600;
+  margin: 0 0 12px 0;
+  font-size: 22px;
 }
 
 .todo-input-group {
@@ -86,19 +83,18 @@ hr {
 
 .todo-input-group input {
   flex: 1;
-  padding: 10px 15px;
+  padding: 10px;
   border: none;
   outline: none;
   font-size: 14px;
 }
 
 .todo-input-group button {
-  padding: 10px 30px;
+  padding: 10px 25px;
   border: none;
   background-color: #e0e0e0;
-  color: #555;
+  color: #444;
   cursor: pointer;
-  font-size: 14px;
   font-weight: bold;
 }
 
@@ -117,9 +113,8 @@ hr {
   justify-content: space-between;
   align-items: center;
   padding: 12px 15px;
-  background-color: #cfd8dc;
+  background-color: #dbe3e6;
   border-bottom: 1px solid #b0bec5;
-  color: #333;
 }
 
 .todo-item:nth-child(even) {
@@ -127,29 +122,30 @@ hr {
 }
 
 .delete-btn {
-  padding: 4px 12px;
+  padding: 2px 10px;
   cursor: pointer;
   font-size: 16px;
   color: #555;
-  transition: background-color 0.2s, color 0.2s;
 }
 
-/* Red hover state for close button as shown in task screenshot */
 .delete-btn:hover {
   background-color: #ef5350;
   color: white;
 }
 
-/* --- Task 10: Image Slider --- */
+/* --- TASK 10: Image Slider --- */
 .slider-container {
   position: relative;
-  max-width: 600px;
-  margin: 0 auto;
+  max-width: 100%;
+  margin-top: 15px;
+  overflow: hidden;
+  border-radius: 6px;
 }
 
 .slider img {
   width: 100%;
-  border-radius: 6px;
+  height: 300px;
+  object-fit: cover;
   display: block;
 }
 
@@ -164,6 +160,7 @@ hr {
   cursor: pointer;
   font-size: 18px;
   border-radius: 4px;
+  user-select: none;
 }
 
 .prev-btn { left: 10px; }
@@ -173,19 +170,20 @@ hr {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* --- Task 11: Toggle Switch (Emoji Style as shown in attachment) --- */
+/* --- TASK 11: Toggle Switch --- */
 .toggle-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
+  margin-top: 15px;
 }
 
 .switch {
   position: relative;
   display: inline-block;
-  width: 80px;
-  height: 40px;
+  width: 70px;
+  height: 36px;
 }
 
 .switch input {
@@ -198,15 +196,15 @@ hr {
   position: absolute;
   cursor: pointer;
   top: 0; left: 0; right: 0; bottom: 0;
-  background-color: #a0a0a0;
-  transition: 0.4s;
-  border-radius: 40px;
+  background-color: #aaa;
+  transition: 0.3s;
+  border-radius: 36px;
 }
 
 .slider-switch .emoji-icon {
   position: absolute;
-  height: 32px;
-  width: 32px;
+  height: 28px;
+  width: 28px;
   left: 4px;
   bottom: 4px;
   background-color: white;
@@ -214,17 +212,16 @@ hr {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
-  transition: 0.4s;
+  font-size: 16px;
+  transition: 0.3s;
 }
 
 input:checked + .slider-switch {
-  background-color: #90caf9;
+  background-color: #81d4fa;
 }
 
 input:checked + .slider-switch .emoji-icon {
-  transform: translateX(40px);
-  background-color: #fff176;
+  transform: translateX(34px);
 }
 
 .toggle-status {
